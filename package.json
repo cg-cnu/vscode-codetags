@@ -1,9 +1,9 @@
 {
     "name": "vscode-notes",
     "displayName": "vscode-notes",
-    "description": "",
+    "description": "insert tags in the code",
     "version": "0.0.1",
-    "publisher": "Y",
+    "publisher": "sreenivas alapati",
     "engines": {
         "vscode": "^1.16.0"
     },
@@ -11,19 +11,19 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.generateTodo",
-        "onCommand:extension.generateIssue"
+        "onCommand:codeTags.todo",
+        "onCommand:codeTags.issue"
     ],
-    "main": "./out/src/extension",
+    "main": "./out/src/codeTags",
     "contributes": {
         "commands": [
             {
-                "command": "extension.generateTodo",
-                "title": "Notes: Todo"
+                "command": "codeTags.todo",
+                "title": "Note: Todo"
             },
             {
-                "command": "extension.generateIssue",
-                "title": "Notes: Issue"
+                "command": "codeTags.issue",
+                "title": "Note: Issue"
             }
         ]
     },
