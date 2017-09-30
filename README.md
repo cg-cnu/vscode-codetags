@@ -1,65 +1,68 @@
-# vscode-notes README
+<p align="center">
+  <img src="./src/icons/codetags-256.png" height="100px"/>
+  <h1 align="center">Code Tags</h1>
+  <h4 align="center">Add tags to your code with predefined templates</h4>
+  <br>
+</p>
 
-This is the README for your extension "vscode-notes". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Provides templates for the following code tags...
 
-For example if there is an image subfolder under your extension project workspace:
+* **TODO:** (MILESTONE, MLSTN, DONE, YAGNI, TBD, TOBEDONE) <br> **To do**:Informal tasks/features that are pending completion.
 
-\!\[feature X\]\(images/feature-x.png\)
+* **FIXME:** (XXX, DEBUG, BROKEN, REFACTOR, REFACT, RFCTR, OOPS, SMELL, NEEDSWORK, INSPECT) <br> **Fix me**: Areas of problematic or ugly code needing refactoring or cleanup.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+* **BUG:** (BUGFIX) <br> **Bugs**: Reported defects tracked in bug database.
 
-## Requirements
+* **IDEA:** <br> **Ideas**: Possible RFE candidates, but less formal than RFE.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* **WTF:** (WTF, QUEST, QSTN, QUESTION) <br>
+**Questions**: Misunderstood details.
 
-## Extension Settings
+* **HACK:** (CLEVER, MAGIC) <br> **Hacks**: Temporary code to force inflexible functionality, or simply a test change, or workaround a known problem.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+* **NOTE:** (HELP) <br> **Notes**: Sections where a code reviewer found something that needs discussion or further investigation.
 
-For example:
+* **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
 
-This extension contributes the following settings:
+### inspiration for tags which can be further added...
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* **NOBUG:** (NOFIX, WONTFIX, DONTFIX, NEVERFIX, UNFIXABLE, CANTFIX) <br> **Will Not Be Fixed**: Problems that are well-known but will never be addressed due to design problems or domain limitations.
 
-## Known Issues
+* **REQ:** (REQUIREMENT, STORY) <br> **Requirements**: Satisfactions of specific, formal requirements.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* **RFE:** (FEETCH, NYI, FR, FTRQ, FTR) <br> **Requests For Enhancement**: Roadmap items not yet implemented.
 
-## Release Notes
+* **!!!:** (ALERT) <br>
+**Alerts**: In need of immediate attention.
 
-Users appreciate release notes as you update your extension.
+* **PORT:** (PORTABILITY, WKRD) <br> **Portability**: Workarounds specific to OS, language version, etc.
 
-### 1.0.0
+* **CAVEAT:** (CAV, CAVT, WARNING, CAUTION) <br> **Caveats**: Implementation details/gotchas that stand out as non-intuitive.
 
-Initial release of ...
+* **FAQ:** <br> **Frequently Asked Questions**: Interesting areas that require external explanation.
 
-### 1.0.1
+* **GLOSS:** (GLOSSARY) <br> **Glossary**: Definitions for project glossary.
 
-Fixed issue #.
+* **TODOC:** (DOCDO, DODOC, NEEDSDOC, EXPLAIN, DOCUMENT) <br> **Needs Documentation**: Areas of code that still need to be documented.
 
-### 1.1.0
+* **CRED:** (CREDIT, THANKS) <br> **Credits**: Accreditations for external provision of enlightenment.
 
-Added features X, Y, and Z.
+* **STAT:** (STATUS) <br> **Status**: File-level statistical indicator of maturity of this file.
 
------------------------------------------------------------------------------------------------------------
+* **RVD:** (REVIEWED, REVIEW) <br> **Reviewed**: File-level indicator that review was conducted.
 
-## Working with Markdown
+## Inspirtion:
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+* [Never forget anything before after and while coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1)
+* [PEP 350 -- Codetags](https://www.python.org/dev/peps/pep-0350/)
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+### Issue/Feedback:
 
-### For more information
+log them in the [github issues](https://github.com/cg-cnu/vscode-codetags/issues) or hit me on [twitter](https://twitter.com/CgCnu).
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+### Like it?:
 
-**Enjoy!**
+:star: this repo.

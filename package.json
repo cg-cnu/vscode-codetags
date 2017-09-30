@@ -1,7 +1,7 @@
 {
-    "name": "vscode-notes",
-    "displayName": "vscode-notes",
-    "description": "insert tags in the code",
+    "name": "vscode-codetags",
+    "displayName": "vscode-codetags",
+    "description": "add tags to code",
     "version": "0.0.1",
     "publisher": "sreenivas alapati",
     "engines": {
@@ -11,19 +11,14 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:codeTags.todo",
-        "onCommand:codeTags.issue"
+        "*"
     ],
-    "main": "./out/src/codeTags",
+    "main": "./out/src/codetags",
     "contributes": {
         "commands": [
             {
-                "command": "codeTags.todo",
-                "title": "Note: Todo"
-            },
-            {
-                "command": "codeTags.issue",
-                "title": "Note: Issue"
+                "command": "codetags.tags",
+                "title": "codetags"
             }
         ]
     },
