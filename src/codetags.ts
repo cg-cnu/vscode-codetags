@@ -10,15 +10,12 @@ for (let tag of Object.keys(tags)){
 
 // insert the tags
 var insertTag: any = (tag: string) => {
-    var editor = vscode.window.activeTextEditor;
-    // delete the selected text
+    const editor: vscode.TextEditor = vscode.window.activeTextEditor;
     editor.edit( editBuilder => {
+        // delete the selected text
         editBuilder.delete(editor.selection);
-    }).then( () => {
-        // insert the tag text template
-        editor.edit( (editBuilder) => {
-            editBuilder.insert(editor.selection.start, tags[tag]);
-        });
+        // insert the tag text
+        editBuilder.insert(editor.selection.start, tags[tag]);
     }).then( () =>{
         // comment the inserted lines
         vscode.commands.executeCommand("editor.action.commentLine") 
@@ -31,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('codetags.tags', () => { 
             // provide code tags 
             vscode.window.showQuickPick( tagNames )
-            .then( (tag) => {
+            .then( (tag: string) => {
                 // insert tag
                 if(tag){
                     insertTag(tag);
