@@ -5,7 +5,6 @@
   <br>
 </p>
 
-
 ## Features
 
 Provides templates for the following code tags...
@@ -27,7 +26,7 @@ Provides templates for the following code tags...
 
 * **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
 
-### inspiration for tags which can be further added...
+### tags which can be further added...
 
 * **NOBUG:** (NOFIX, WONTFIX, DONTFIX, NEVERFIX, UNFIXABLE, CANTFIX) <br> **Will Not Be Fixed**: Problems that are well-known but will never be addressed due to design problems or domain limitations.
 
@@ -54,10 +53,10 @@ Provides templates for the following code tags...
 
 * **RVD:** (REVIEWED, REVIEW) <br> **Reviewed**: File-level indicator that review was conducted.
 
-## Inspirtion:
+## Inspiration:
 
-* [Never forget anything before after and while coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1)
-* [PEP 350 -- Codetags](https://www.python.org/dev/peps/pep-0350/)
+* [Never forget anything before after and while coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1), a medium article by [Eido Askayo](https://mediu.com/eido.askayo).
+* [PEP 350 -- Codetags](https://www.python.org/dev/peps/pep-0350/) by Micah Elliott.
 
 ### Issue/Feedback:
 

@@ -15,7 +15,7 @@ var insertTag: any = (tag: string) => {
         // delete the selected text
         editBuilder.delete(editor.selection);
         // insert the tag text
-        editBuilder.insert(editor.selection.start, tags[tag]);
+        editBuilder.insert(editor.selection.start, tags[tag]());
     }).then( () =>{
         // comment the inserted lines
         vscode.commands.executeCommand("editor.action.commentLine") 
