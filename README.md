@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./src/icons/codetags-256.png" height="100px"/>
+  <img src="https://user-images.githubusercontent.com/2767425/31160386-9eff2882-a8ed-11e7-8f57-a0e48bfbd4ba.png" height="100px"/>
   <h1 align="center">Code Tags</h1>
   <h4 align="center">Add tags to your code with predefined templates</h4>
   <br>

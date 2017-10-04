@@ -7,12 +7,40 @@
     "engines": {
         "vscode": "^1.16.0"
     },
+    "author": {
+        "email": "sreenivas9alapati@gmail.com",
+        "name": "sreenivas alapati",
+        "url": "https://twitter.com/cgcnu"
+    },
     "categories": [
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "onCommand:codetags.tags"
     ],
+    "bugs": {
+        "email": "sreenivas9alapati@gmail.com",
+        "url": "https://github.com/cg-cnu/vscode-codetags/issues"
+    },
+    "galleryBanner": {
+        "color": "#041A31",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cg-cnu/vscode-codetags"
+    },
+    "readme": "README.md",
+    "icon": "icons/codetags-128.png",
+    "license": "MIT",
+    "keywords": [
+        "code",
+        "comments",
+        "tags",
+        "codetags",
+        "codetag"
+    ],
+    "homepage": "https://github.com/cg-cnu/vscode-codetags",
     "main": "./out/src/codetags",
     "contributes": {
         "commands": [
