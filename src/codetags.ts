@@ -11,6 +11,11 @@ for (let tag of Object.keys(tags)){
 // insert the tags
 var insertTag: any = (tag: string) => {
     const editor: vscode.TextEditor = vscode.window.activeTextEditor;
+    // if no active text editor
+    if (!editor) {
+        vscode.window.showErrorMessage("No file open.");
+        return;
+    }
     editor.edit( editBuilder => {
         // delete the selected text
         editBuilder.delete(editor.selection);
