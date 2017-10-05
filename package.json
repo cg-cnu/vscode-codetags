@@ -2,7 +2,7 @@
     "name": "vscode-codetags",
     "displayName": "codetags",
     "description": "Add tags to your code with predefined templates",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "cg-cnu",
     "engines": {
         "vscode": "^1.16.0"
@@ -38,7 +38,8 @@
         "comments",
         "tags",
         "codetags",
-        "codetag"
+        "codetag",
+        "code tags"
     ],
     "homepage": "https://github.com/cg-cnu/vscode-codetags",
     "main": "./out/src/codetags",

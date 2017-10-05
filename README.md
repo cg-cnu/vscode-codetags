@@ -5,7 +5,13 @@
   <br>
 </p>
 
-## Features
+## Demo:
+  <img src="https://user-images.githubusercontent.com/2767425/31217786-cc0ec5ce-a9d5-11e7-943c-2a6a103477d8.gif" />
+
+## Features:
+
+* Add tags in your code base and refer back to them.
+* You can customize the tag template in the tags.ts file.
 
 Provides templates for the following code tags...
 
