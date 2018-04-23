@@ -1,68 +1,94 @@
 {
-    "name": "vscode-codetags",
-    "displayName": "codetags",
-    "description": "Add tags to your code with predefined templates",
-    "version": "0.0.2",
-    "publisher": "cg-cnu",
-    "engines": {
-        "vscode": "^1.16.0"
-    },
-    "author": {
-        "email": "sreenivas9alapati@gmail.com",
-        "name": "sreenivas alapati",
-        "url": "https://twitter.com/cgcnu"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:codetags.tags"
-    ],
-    "bugs": {
-        "email": "sreenivas9alapati@gmail.com",
-        "url": "https://github.com/cg-cnu/vscode-codetags/issues"
-    },
-    "galleryBanner": {
-        "color": "#041A31",
-        "theme": "dark"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cg-cnu/vscode-codetags"
-    },
-    "readme": "README.md",
-    "icon": "icons/codetags-128.png",
-    "license": "MIT",
-    "keywords": [
-        "code",
-        "comments",
-        "tags",
-        "codetags",
-        "codetag",
-        "code tags"
-    ],
-    "homepage": "https://github.com/cg-cnu/vscode-codetags",
-    "main": "./out/src/codetags",
-    "contributes": {
-        "commands": [
-            {
-                "command": "codetags.tags",
-                "title": "codetags"
+  "name": "vscode-codetags",
+  "displayName": "codetags",
+  "description": "Add tags to your code with predefined templates",
+  "version": "0.0.3",
+  "publisher": "cg-cnu",
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "author": {
+    "email": "sreenivas9alapati@gmail.com",
+    "name": "sreenivas alapati",
+    "url": "https://twitter.com/cgcnu"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:codetags.tags"
+  ],
+  "bugs": {
+    "email": "sreenivas9alapati@gmail.com",
+    "url": "https://github.com/cg-cnu/vscode-codetags/issues"
+  },
+  "galleryBanner": {
+    "color": "#041A31",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cg-cnu/vscode-codetags"
+  },
+  "readme": "README.md",
+  "icon": "icons/codetags-128.png",
+  "license": "MIT",
+  "keywords": [
+    "code",
+    "comments",
+    "tags",
+    "codetags",
+    "codetag",
+    "code tags"
+  ],
+  "homepage": "https://github.com/cg-cnu/vscode-codetags",
+  "main": "./out/src/codetags",
+  "contributes": {
+    "configuration": [
+      {
+        "properties": {
+          "codetags.custom": {
+            "type": "array",
+            "description": "create custom codetags",
+            "items": {
+              "type": "object",
+              "title": "codetag properties",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "name",
+                  "description": "codetag name"
+                },
+                "body": {
+                  "type": "string",
+                  "title": "body",
+                  "description": "codetag body"
+                }
+              }
             }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.5.2",
-        "vscode": "^1.1.5",
-        "mocha": "^3.5.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
-    }
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "codetags.tags",
+        "title": "codetags"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5",
+    "mocha": "^3.5.0",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  }
 }
