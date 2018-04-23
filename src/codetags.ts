@@ -12,7 +12,7 @@ var tags: any = {
   idea: "Possible implementations",
   wtf: "Misunderstood details",
   hack: "Temporary fix",
-  note: "Pointers to other sources"
+  note: "Needs discussion or investigation"
 };
 
 // get custom tags
