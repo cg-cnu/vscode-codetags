@@ -17,11 +17,11 @@ var tags: any = {
 
 // get custom tags
 const customTags: Array<any> = vscode.workspace.getConfiguration("codetags").custom;
-console.log(customTags);
 for (let tag of customTags) {
   tags[tag.name] = tag.body;
 }
 
+// create tagnames list
 var tagNames: Array<string> = [];
 for (let tag of Object.keys(tags)) {
   tagNames.push(tag);
