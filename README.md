@@ -39,9 +39,9 @@
 
   * **NOTE:** (HELP) <br> **Notes**: Sections where a code reviewer found something that needs discussion or further investigation.
 
-  * **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
-
 ### tags which can be further added...
+
+* **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
 
 * **NOBUG:** (NOFIX, WONTFIX, DONTFIX, NEVERFIX, UNFIXABLE, CANTFIX) <br> **Will Not Be Fixed**: Problems that are well-known but will never be addressed due to design problems or domain limitations.
 
