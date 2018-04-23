@@ -7,9 +7,9 @@ const getUser: any = () => require("os").userInfo().username;
 // Default tags
 var tags: any = {
   todo: "Tasks pending completion",
-  fixme: "Problematic code needing refactor or cleanup",
+  fixme: "Needing refactor or cleanup",
   bug: "Reported defects",
-  idea: "Possible RFE candidates",
+  idea: "Possible implementations",
   wtf: "Misunderstood details",
   hack: "Temporary fix",
   note: "Pointers to other sources"
