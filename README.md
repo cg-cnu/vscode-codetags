@@ -6,31 +6,40 @@
 </p>
 
 ## Demo:
-  <img src="https://user-images.githubusercontent.com/2767425/31217786-cc0ec5ce-a9d5-11e7-943c-2a6a103477d8.gif" />
+  <img src="https://user-images.githubusercontent.com/2767425/39123058-4c114a68-4714-11e8-8e83-c67b174e816e.gif" />
 
 ## Features:
 
-* Add tags in your code base and refer back to them.
-* You can customize the tag template in the tags.ts file.
+* customize tags:
 
-Provides templates for the following code tags...
+  * Add custom tags in the user or workspace settings...
+    
+    <img src="https://user-images.githubusercontent.com/2767425/39125245-f27179d0-471b-11e8-9b31-b5727060b641.gif" />
 
-* **TODO:** (MILESTONE, MLSTN, DONE, YAGNI, TBD, TOBEDONE) <br> **To do**:Informal tasks/features that are pending completion.
+  * Restart vscode
 
-* **FIXME:** (XXX, DEBUG, BROKEN, REFACTOR, REFACT, RFCTR, OOPS, SMELL, NEEDSWORK, INSPECT) <br> **Fix me**: Areas of problematic or ugly code needing refactoring or cleanup.
+  * Use custom tags as usual...
 
-* **BUG:** (BUGFIX) <br> **Bugs**: Reported defects tracked in bug database.
+    <img src="https://user-images.githubusercontent.com/2767425/39125283-0c598086-471c-11e8-9919-1881b1c363d7.gif" />
 
-* **IDEA:** <br> **Ideas**: Possible RFE candidates, but less formal than RFE.
+* Default tags:
 
-* **WTF:** (WTF, QUEST, QSTN, QUESTION) <br>
-**Questions**: Misunderstood details.
+  * **TODO:** (MILESTONE, MLSTN, DONE, YAGNI, TBD, TOBEDONE) <br> **To do**:Informal tasks/features that are pending completion.
 
-* **HACK:** (CLEVER, MAGIC) <br> **Hacks**: Temporary code to force inflexible functionality, or simply a test change, or workaround a known problem.
+  * **FIXME:** (XXX, DEBUG, BROKEN, REFACTOR, REFACT, RFCTR, OOPS, SMELL, NEEDSWORK, INSPECT) <br> **Fix me**: Areas of problematic or ugly code needing refactoring or cleanup.
 
-* **NOTE:** (HELP) <br> **Notes**: Sections where a code reviewer found something that needs discussion or further investigation.
+  * **BUG:** (BUGFIX) <br> **Bugs**: Reported defects tracked in bug database.
 
-* **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
+  * **IDEA:** <br> **Ideas**: Possible RFE candidates, but less formal than RFE.
+
+  * **WTF:** (WTF, QUEST, QSTN, QUESTION) <br>
+  **Questions**: Misunderstood details.
+
+  * **HACK:** (CLEVER, MAGIC) <br> **Hacks**: Temporary code to force inflexible functionality, or simply a test change, or workaround a known problem.
+
+  * **NOTE:** (HELP) <br> **Notes**: Sections where a code reviewer found something that needs discussion or further investigation.
+
+  * **SEE:** (REF, REFERENCE) <br> **See**: Pointers to other code, web link, etc.
 
 ### tags which can be further added...
 
