@@ -16,7 +16,8 @@ var tags: any = {
 };
 
 // get custom tags
-const customTags: Array<any> = vscode.workspace.getConfiguration("codetags").custom;
+const customTags: Array<any> = vscode.workspace.getConfiguration("codetags")
+  .custom;
 for (let tag of customTags) {
   tags[tag.name] = tag.body;
 }
