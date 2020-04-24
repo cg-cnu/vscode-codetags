@@ -1,6 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
-var userName = require("git-user-name");
+import { userName as gitUserName } from "git-user-name";
+import { format as dateFormat } from "date-fns";
 
 class Tag {
   constructor(
@@ -9,8 +10,8 @@ class Tag {
     public label: string
   ) {
     this.name = name;
-    this.label = label === undefined ? name : label;
     this.description = description;
+    this.label = label === undefined ? name : label;
   }
 }
 
@@ -54,35 +55,34 @@ var defaultTags: Array<any> = [
 
 const config: any = vscode.workspace.getConfiguration("codetags");
 
-const collatedTags = [...defaultTags, ...config.custom];
+const collatedTags: Array<any> = [...defaultTags, ...config.custom];
 const tags: Array<Tag> = [];
 collatedTags.forEach((tag) => {
   tags.push(new Tag(tag.name, tag.description, tag.label));
 });
 
-const getDate = (format = "default"): string => {
-  // determine the format
-  return new Date(Date.now()).toLocaleString();
+const getDate = (format = "yyyy-MM-dd"): string => {
+  return dateFormat(new Date(Date.now()), format);
 };
 
 const getUser = (editor: vscode.TextEditor): string => {
   if (config.user.name !== undefined) {
     return config.user.name;
   }
-  const gitUserName = userName();
-  if (gitUserName !== undefined) {
-    return gitUserName;
+  const userName = gitUserName();
+  if (userName !== undefined) {
+    return userName;
   }
   return require("os").userInfo().username;
 };
 
 const formatTag = (editor: vscode.TextEditor, tag: Tag): string => {
   let formattedTag = `${tag.name.toUpperCase()}: ${tag.description}`;
-  if (config.user === true) {
+  if (config.user.enable === undefined || config.user.enable === true) {
     formattedTag += ` by ${getUser(editor)}`;
   }
-  if (config.date === true) {
-    formattedTag += ` at ${getDate(config.dateformat)}`;
+  if (config.date.enable === undefined || config.date.enable === true) {
+    formattedTag += ` at ${getDate(config.date.format)}`;
   }
   return formattedTag;
 };
