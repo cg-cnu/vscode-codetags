@@ -89,5 +89,8 @@
     "mocha": "^6.2.3",
     "typescript": "^3.8.3",
     "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "git-user-name": "^2.0.0"
   }
 }
