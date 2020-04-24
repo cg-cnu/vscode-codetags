@@ -1,54 +1,85 @@
 "use strict";
 import * as vscode from "vscode";
-import { format } from "path";
+var userName = require("git-user-name");
+
+class Tag {
+  constructor(
+    public name: string,
+    public description: string,
+    public label: string
+  ) {
+    this.name = name;
+    this.label = label === undefined ? name : label;
+    this.description = description;
+  }
+}
+
+var defaultTags: Array<any> = [
+  {
+    name: "todo",
+    label: "✅todo",
+    description: "Tasks pending completion",
+  },
+  {
+    name: "fixme",
+    label: "⚠️fixme",
+    description: "Needing refactor, cleanup",
+  },
+  {
+    name: "bug",
+    label: "🐞bug",
+    description: "Reported defects",
+  },
+  {
+    name: "idea",
+    label: "💡idea",
+    description: "Possible implementations",
+  },
+  {
+    name: "wtf",
+    label: "‼️wtf",
+    description: "Misunderstood details",
+  },
+  {
+    name: "hack",
+    label: "🤖hack",
+    description: "Temporary fix",
+  },
+  {
+    name: "note",
+    label: "📝note",
+    description: "Needs discussion or investigation",
+  },
+];
+
+const config: any = vscode.workspace.getConfiguration("codetags");
+
+const collatedTags = [...defaultTags, ...config.custom];
+const tags: Array<Tag> = [];
+collatedTags.forEach((tag) => {
+  tags.push(new Tag(tag.name, tag.description, tag.label));
+});
 
 const getDate = (format = "default"): string => {
   // determine the format
   return new Date(Date.now()).toLocaleString();
 };
-const getUser = (): string => require("os").userInfo().username;
 
-// Default tags
-var defaultTags: Array<any> = [
-  {
-    name: "todo",
-    description: "Tasks pending completion",
-  },
-  {
-    name: "fixme",
-    description: "Needing refactor or cleanup",
-  },
-];
+const getUser = (editor: vscode.TextEditor): string => {
+  if (config.user.name !== undefined) {
+    return config.user.name;
+  }
+  const gitUserName = userName();
+  if (gitUserName !== undefined) {
+    return gitUserName;
+  }
+  return require("os").userInfo().username;
+};
 
-// todo: "Tasks pending completion",
-// fixme: "Needing refactor or cleanup",
-// bug: "Reported defects",
-// idea: "Possible implementations",
-// wtf: "Misunderstood details",
-// hack: "Temporary fix",
-// note: "Needs discussion or investigation",
-
-const config: any = vscode.workspace.getConfiguration("codetags");
-// add custom tags on top of default tags
-const tags = [...defaultTags, ...config.custom];
-// customTags.forEach((tag) => {
-//   tags[tag.name] = tag.body;
-// });
-// for (let tag of customTags) {
-//   tags[tag.name] = tag.body;
-// }
-
-// create tagnames list
-var tagNames: Array<string> = [];
-for (let tag of Object.keys(tags)) {
-  tagNames.push(tag);
-}
-
-const getTag: any = (tag) => {
-  // @ for user and at for time, validate it
-  let formattedTag = `${tag.toUpperCase()}: ${tags[tag]}`;
+const formatTag = (editor: vscode.TextEditor, tag: Tag): string => {
+  let formattedTag = `${tag.name.toUpperCase()}: ${tag.description}`;
   if (config.user === true) {
-    formattedTag += ` -@${getUser()}`;
+    formattedTag += ` by ${getUser(editor)}`;
   }
   if (config.date === true) {
     formattedTag += ` at ${getDate(config.dateformat)}`;
@@ -56,20 +87,25 @@ const getTag: any = (tag) => {
   return formattedTag;
 };
 
-// insert the tags
-var insertTag: any = (editor: vscode.TextEditor, tag: string) => {
+var insertTag: any = (editor: vscode.TextEditor, tag: Tag) => {
   editor
     .edit((editBuilder) => {
-      // delete the selected text
       editBuilder.delete(editor.selection);
-      // insert the tag text
-      editBuilder.insert(editor.selection.start, getTag(tag));
+      editBuilder.insert(editor.selection.start, formatTag(editor, tag));
     })
     .then(() => {
-      // comment the inserted lines
       vscode.commands.executeCommand("editor.action.commentLine");
-      // vscode.commands.executeCommand("editor.action.insertLineAfter");
-      // vscode.commands.executeCommand("editor.action.commentLine");
+    })
+    .then(() => {
+      const activeLine = editor.selection.active.line;
+      const lineText = editor.document.lineAt(activeLine).text;
+      const descriptionIndex = lineText.indexOf(tag.description);
+      const startPos = new vscode.Position(activeLine, descriptionIndex);
+      const endPos = new vscode.Position(
+        activeLine,
+        descriptionIndex + tag.description.length
+      );
+      editor.selection = new vscode.Selection(startPos, endPos);
     });
 };
 
@@ -77,14 +113,11 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand("codetags.tags", () => {
       const editor: vscode.TextEditor = vscode.window.activeTextEditor;
-      // if no active text editor
       if (!editor) {
         vscode.window.showErrorMessage("No file open.");
         return;
       }
-
-      vscode.window.showQuickPick(tagNames).then((tag: string) => {
-        // insert tag
+      vscode.window.showQuickPick(tags).then((tag: Tag) => {
         if (tag) {
           insertTag(editor, tag);
         }
