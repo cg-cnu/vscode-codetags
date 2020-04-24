@@ -46,22 +46,66 @@
     "configuration": [
       {
         "properties": {
+          "codetags.date": {
+            "type": "object",
+            "title": "date",
+            "description": "codetag date settings",
+            "properties": {
+              "enable": {
+                "type": "boolean",
+                "title": "enable",
+                "description": "enable date in codetag"
+              },
+              "format": {
+                "type": "string",
+                "title": "format",
+                "description": "specify date-fns style date format"
+              }
+            }
+          },
+          "codetags.user": {
+            "type": "object",
+            "title": "user",
+            "description": "codetag user settings",
+            "properties": {
+              "enable": {
+                "type": "boolean",
+                "title": "enable",
+                "description": "enable user name in codetag"
+              },
+              "name": {
+                "type": "string",
+                "title": "name",
+                "description": "set default user"
+              }
+            }
+          },
           "codetags.custom": {
             "type": "array",
-            "description": "create custom codetags",
+            "description": "add custom codetags",
             "items": {
               "type": "object",
-              "title": "codetag properties",
+              "title": "CodeTag",
+              "description": "custom codetag structure",
+              "required": [
+                "name",
+                "description"
+              ],
               "properties": {
                 "name": {
                   "type": "string",
-                  "title": "name",
+                  "title": "Name",
                   "description": "codetag name"
                 },
-                "body": {
+                "label": {
                   "type": "string",
-                  "title": "body",
-                  "description": "codetag body"
+                  "title": "Label",
+                  "description": "codetag label. Used in vscode UI"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description",
+                  "description": "codetag description"
                 }
               }
             }
@@ -91,6 +135,7 @@
     "vscode": "^1.1.37"
   },
   "dependencies": {
+    "date-fns": "^2.12.0",
     "git-user-name": "^2.0.0"
   }
 }
