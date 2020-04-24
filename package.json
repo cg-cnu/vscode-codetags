@@ -80,6 +80,11 @@
               }
             }
           },
+          "codetags.default": {
+            "type": "boolean",
+            "title": "Default",
+            "description": "enable or disable default tags"
+          },
           "codetags.custom": {
             "type": "array",
             "description": "add custom codetags",
