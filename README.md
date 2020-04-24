@@ -23,6 +23,8 @@
 
     <img src="https://user-images.githubusercontent.com/2767425/39125283-0c598086-471c-11e8-9919-1881b1c363d7.gif" />
 
+- Refer to [tags](./tags.md) for explanation of tags.
+
 ## Inspiration
 
 - [Never forget anything before after and while coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1), a medium article by [Eido Askayo](https://mediu.com/eido.askayo).

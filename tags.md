@@ -36,7 +36,7 @@ pep-0350](https://www.python.org/dev/peps/pep-0350/#mnemonics).
   **Notes**: Sections where a code reviewer found something that needs
   discussion or further investigation.
 
-## tags which can be further added
+## Additional tags
 
 - SEE (REF, REFERENCE)
 
