@@ -12,7 +12,7 @@ var tags: any = {
   idea: "Possible implementations",
   wtf: "Misunderstood details",
   hack: "Temporary fix",
-  note: "Needs discussion or investigation"
+  note: "Needs discussion or investigation",
 };
 
 // get custom tags
@@ -31,7 +31,7 @@ for (let tag of Object.keys(tags)) {
 // insert the tags
 var insertTag: any = (editor: vscode.TextEditor, tag: string) => {
   editor
-    .edit(editBuilder => {
+    .edit((editBuilder) => {
       // delete the selected text
       editBuilder.delete(editor.selection);
       // insert the tag text
