@@ -55,11 +55,20 @@ var defaultTags: Array<any> = [
 
 const config: any = vscode.workspace.getConfiguration("codetags");
 
-const collatedTags: Array<any> = [...defaultTags, ...config.custom];
-const tags: Array<Tag> = [];
-collatedTags.forEach((tag) => {
-  tags.push(new Tag(tag.name, tag.description, tag.label));
-});
+const getTags = (): Array<Tag> => {
+  let collatedTags: Array<any> = [];
+  if (config.default === undefined || config.default === true) {
+    collatedTags = [...defaultTags];
+  }
+  if (config.custom !== undefined) {
+    collatedTags = [...config.custom];
+  }
+  let tags: Array<Tag> = [];
+  collatedTags.forEach((tag) => {
+    tags.push(new Tag(tag.name, tag.description, tag.label));
+  });
+  return tags;
+};
 
 const getDate = (format = "yyyy-MM-dd"): string => {
   return dateFormat(new Date(Date.now()), format);
@@ -117,6 +126,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showErrorMessage("No file open.");
         return;
       }
+      let tags: Array<Tag> = getTags();
       vscode.window.showQuickPick(tags).then((tag: Tag) => {
         if (tag) {
           insertTag(editor, tag);
