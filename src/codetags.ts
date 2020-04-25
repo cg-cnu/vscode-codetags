@@ -58,10 +58,10 @@ const config: any = vscode.workspace.getConfiguration("codetags");
 const getTags = (): Array<Tag> => {
   let collatedTags: Array<any> = [];
   if (config.default === undefined || config.default === true) {
-    collatedTags = [...defaultTags];
+    collatedTags.push(...defaultTags);
   }
   if (config.custom !== undefined) {
-    collatedTags = [...config.custom];
+    collatedTags.push(...config.custom);
   }
   let tags: Array<Tag> = [];
   collatedTags.forEach((tag) => {
