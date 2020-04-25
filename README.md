@@ -7,9 +7,7 @@
 
 ## Demo
 
-<img
-  src="https://user-images.githubusercontent.com/2767425/39123058-4c114a68-4714-11e8-8e83-c67b174e816e.gif"
-  />
+![codetags-demo](https://user-images.githubusercontent.com/2767425/80270143-c1d00880-86f4-11ea-98ec-f1ebb941bf44.gif)
 
 ## Features
 
