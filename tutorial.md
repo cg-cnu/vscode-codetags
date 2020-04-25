@@ -1,12 +1,13 @@
 # Tutorial
 
-I needed a way to list [codetags](https://www.python.org/dev/peps/pep-0350/) in
-my project. While
+I was looking for a way to standardize the creation of comments in my projects
+and came across [codetags](https://www.python.org/dev/peps/pep-0350/).
 [vscode-codetags](https://marketplace.visualstudio.com/items?itemName=cg-cnu.vscode-codetags)
-lets you standardizing the creation of tags you can use the extensions below to
-add more value to it. This guide initially written by [Théry
+is my attempt at scratching that itch. This addon helps you standardize the
+creation of tags. But there is a lot of value you can gain by combining with
+other extenstions. This guide, initially written by [Théry
 Fouchter](https://github.com/TheryFouchter) helps you setup and list codetags
-with Icons and color per codetag.
+with Icons and colors.
 
 ## Screenshot
 
@@ -18,9 +19,12 @@ You can use the below addons and its settings to create a set of custom todos
 and display them in the Todo Tree and assign specific color using better
 comments. Add the below configurations to settings.json
 
+By unifying the tags, icons and colors across all the addons you get a
+seamless experience.
+
 ### Code Tags
 
-You can extend tags in Code Tags by
+You can extend tags in codetags by defining your own custom tags.
 
 ```json
 // Add additional codetags
@@ -66,7 +70,8 @@ You can extend tags in Code Tags by
 Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
 by [Gruntfuggly](https://marketplace.visualstudio.com/publishers/Gruntfuggly)
 lets you display all the TODOs in your project. Its an amazing addon and it can
-be extended to track codetags.
+be extended to track codetags. You define the codetags you are using and specify
+the color and icon per tag.
 
 ```json
 // (recommended) only highlight the tag due to the regex bellow
@@ -163,7 +168,8 @@ be extended to track codetags.
 [Better
 Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 by [Aaron Bond](https://marketplace.visualstudio.com/publishers/aaron-bond)
-makes your comments beautify. You can configure it to work with codetags.
+makes your comments more meaningful. You can configure it to work with codetags by
+setting different color for each codetag.
 
 ```json
 // The color of the line of your codetags
@@ -284,3 +290,9 @@ makes your comments beautify. You can configure it to work with codetags.
   }
 ]
 ```
+
+## Credits
+
+- 👏 [Théry Fouchter](https://github.com/TheryFouchter)
+- 👏 [Aaron Bond](https://marketplace.visualstudio.com/publishers/aaron-bond)
+- 👏 [Gruntfuggly](https://marketplace.visualstudio.com/publishers/Gruntfuggly)
