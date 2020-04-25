@@ -1,6 +1,6 @@
 "use strict";
 import * as vscode from "vscode";
-import { userName as gitUserName } from "git-user-name";
+const userName = require("git-user-name");
 import { format as dateFormat } from "date-fns";
 
 class Tag {
@@ -74,13 +74,13 @@ const getDate = (format = "yyyy-MM-dd"): string => {
   return dateFormat(new Date(Date.now()), format);
 };
 
-const getUser = (editor: vscode.TextEditor): string => {
+const getUsername = (): string => {
   if (config.user.name !== undefined) {
     return config.user.name;
   }
-  const userName = gitUserName();
-  if (userName !== undefined) {
-    return userName;
+  const gitUserName = userName();
+  if (gitUserName !== undefined) {
+    return gitUserName;
   }
   return require("os").userInfo().username;
 };
@@ -88,7 +88,7 @@ const getUser = (editor: vscode.TextEditor): string => {
 const formatTag = (editor: vscode.TextEditor, tag: Tag): string => {
   let formattedTag = `${tag.name.toUpperCase()}: ${tag.description}`;
   if (config.user.enable === undefined || config.user.enable === true) {
-    formattedTag += ` by ${getUser(editor)}`;
+    formattedTag += ` by ${getUsername()}`;
   }
   if (config.date.enable === undefined || config.date.enable === true) {
     formattedTag += ` at ${getDate(config.date.format)}`;
