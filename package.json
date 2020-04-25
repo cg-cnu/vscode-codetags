@@ -53,11 +53,13 @@
             "properties": {
               "enable": {
                 "type": "boolean",
+                "default": true,
                 "title": "enable",
                 "description": "enable date in codetag"
               },
               "format": {
                 "type": "string",
+                "default": "yyyy-MM-dd",
                 "title": "format",
                 "description": "specify date-fns style date format"
               }
@@ -71,6 +73,7 @@
               "enable": {
                 "type": "boolean",
                 "title": "enable",
+                "default": true,
                 "description": "enable user name in codetag"
               },
               "name": {
@@ -83,6 +86,7 @@
           "codetags.default": {
             "type": "boolean",
             "title": "Default",
+            "default": true,
             "description": "enable or disable default tags"
           },
           "codetags.custom": {
