@@ -7,32 +7,49 @@
 
 ## Demo
 
-  <img src="https://user-images.githubusercontent.com/2767425/39123058-4c114a68-4714-11e8-8e83-c67b174e816e.gif" />
+<img
+  src="https://user-images.githubusercontent.com/2767425/39123058-4c114a68-4714-11e8-8e83-c67b174e816e.gif"
+  />
 
 ## Features
 
-- customize tags:
+- Predefined tags.
 
-  - Add custom tags in the user or workspace settings...
+- Ability to define custom tags. Refer to [tags](./tags.md) for inspiration.
 
-    <img src="https://user-images.githubusercontent.com/2767425/39125245-f27179d0-471b-11e8-9b31-b5727060b641.gif" />
+```json
+// add custom codetag
+  "codetags.custom": [
+    {
+      "name": "REQ",
+      "description": "Satisfactions of specific, formal requirements"
+    }
+  ]
+```
 
-  - Restart vscode
-
-  - Use custom tags as usual...
-
-    <img src="https://user-images.githubusercontent.com/2767425/39125283-0c598086-471c-11e8-9919-1881b1c363d7.gif" />
-
-- Refer to [tags](./tags.md) for explanation of tags.
+- Abilty to enable/disable date and specify the format
+- Ability to enable/disable username. Defaults to git user else system user.
+- Refere to this [tutorial](./tutorial.md) for integration with Todo Tree &
+  Better Comments.
 
 ## Inspiration
 
-- [Never forget anything before after and while coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1), a medium article by [Eido Askayo](https://mediu.com/eido.askayo).
-- [PEP 350 -- Codetags](https://www.python.org/dev/peps/pep-0350/) by Micah Elliott.
+- [Never forget anything before after and while
+  coding](https://hackernoon.com/never-forget-anything-before-after-and-while-coding-98d187ae4cf1),
+  a medium article by [Eido Askayo](https://mediu.com/eido.askayo).
+- [PEP 350 -- Codetags](https://www.python.org/dev/peps/pep-0350/) by Micah
+  Elliott.
+
+## Credits
+
+- Thanks to [Théry Fouchter](https://github.com/TheryFouchter) for the initial
+  version of the [tutorial](./tutorial.md)
 
 ### Issue/Feedback
 
-log them in the [github issues](https://github.com/cg-cnu/vscode-codetags/issues) or hit me on [twitter](https://twitter.com/CgCnu).
+log them in the [github
+issues](https://github.com/cg-cnu/vscode-codetags/issues) or hit me on
+[twitter](https://twitter.com/CgCnu).
 
 ### Like it?
 
