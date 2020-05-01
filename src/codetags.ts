@@ -88,7 +88,7 @@ const getUsername = (): string => {
 const formatTag = (editor: vscode.TextEditor, tag: Tag): string => {
   let formattedTag = `${tag.name.toUpperCase()}: ${tag.description}`;
   if (config.user.enable === undefined || config.user.enable === true) {
-    formattedTag += ` by ${getUsername()}`;
+    formattedTag += ` @${getUsername()}`;
   }
   if (config.date.enable === undefined || config.date.enable === true) {
     formattedTag += ` at ${getDate(config.date.format)}`;
@@ -96,16 +96,47 @@ const formatTag = (editor: vscode.TextEditor, tag: Tag): string => {
   return formattedTag;
 };
 
+const isComment = (editor: vscode.TextEditor): boolean => {
+  const activeLine = editor.selection.active.line;
+  const lineText = editor.document.lineAt(activeLine).text;
+  vscode.commands.executeCommand("editor.action.removeCommentLine");
+  const unCommentedlineText = editor.document.lineAt(activeLine).text;
+  if (lineText == unCommentedlineText) {
+    return false;
+  }
+  return true;
+};
+
 var insertTag: any = (editor: vscode.TextEditor, tag: Tag) => {
   editor
     .edit((editBuilder) => {
       editBuilder.delete(editor.selection);
-      editBuilder.insert(editor.selection.start, formatTag(editor, tag));
+      const activeLine = editor.selection.active.line;
+      const lineText = editor.document.lineAt(activeLine).text;
+      if (isComment(editor) === false) {
+        vscode.commands.executeCommand("editor.action.addCommentLine");
+        const commentedLineText = editor.document.lineAt(activeLine).text;
+        const commentDelimiter = commentedLineText.replace(lineText, "");
+        vscode.commands.executeCommand("editor.action.deleteLine");
+        editBuilder.insert(editor.selection.start, lineText);
+        editBuilder.insert(editor.selection.start, formatTag(editor, tag));
+      }
+      if (isComment(editor) === true) {
+        // vscode.commands.executeCommand("editor.action.addCommentLine");
+        // const commentedLineText = editor.document.lineAt(activeLine).text;
+        // const commentDelimiter = commentedLineText.replace(lineText, "");
+        // vscode.commands.executeCommand("editor.action.deleteLine");
+        // editBuilder.insert(editor.selection.start, lineText);
+        editBuilder.insert(editor.selection.start, formatTag(editor, tag));
+      }
     })
+    // .then(() => {
+    //   vscode.commands.executeCommand("editor.action.addCommentLine");
+    //   const commentedLineText = editor.document.lineAt(activeLine).text;
+    //   const comment = commentedLineText.replace(lineText, "");
+    // })
     .then(() => {
-      vscode.commands.executeCommand("editor.action.commentLine");
-    })
-    .then(() => {
+      // select description
       const activeLine = editor.selection.active.line;
       const lineText = editor.document.lineAt(activeLine).text;
       const descriptionIndex = lineText.indexOf(tag.description);
